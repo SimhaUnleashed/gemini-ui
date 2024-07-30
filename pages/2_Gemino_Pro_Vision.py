@@ -62,7 +62,8 @@ image = None
 if "app_key" in st.session_state:
     uploaded_file = st.file_uploader("choose a pic...", type=["jpg", "png", "jpeg", "gif"], label_visibility='collapsed', on_change = clear_state)
     if uploaded_file is not None:
-        image = Image.open(uploaded_file)
+        img = Image.open(uploaded_file)
+        image = img.convert('RGB')
         width, height = image.size
         resized_img = image.resize((128, int(height/(width/128))), Image.LANCZOS)
         st.image(image)    
