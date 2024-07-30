@@ -23,10 +23,11 @@ st.caption("Ask your questions related to the installer")
 st.session_state.app_key = os.getenv('API_KEY')
 hide_streamlit_style = """
             <style>
-            footer {visibility: hidden;}
+            [data-testid="stToolbar"] {visibility: hidden !important;}
+            footer {visibility: hidden !important;}
             </style>
             """
-st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 if "history" not in st.session_state:
     st.session_state.history = []
