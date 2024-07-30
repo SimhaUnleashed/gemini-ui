@@ -18,6 +18,12 @@ st.set_page_config(
 st.title('Upload Image And Ask')
 
 st.session_state.app_key = os.getenv('API_KEY')
+hide_streamlit_style = """
+            <style>
+            footer {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
 
 try:
     genai.configure(api_key = st.session_state.app_key)
